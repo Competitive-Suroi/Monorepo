@@ -373,6 +373,47 @@ export class Player extends BaseGameObject<ObjectCategory.Player> {
             this.inventory.items.setItem("8x_scope", 1);
             this.inventory.items.setItem("15x_scope", 1);
             this.inventory.scope = "4x_scope";
+        } else {
+
+            
+            this.inventory.addOrReplaceWeapon(0, "model_37");
+            this.inventory.addOrReplaceWeapon(0, "model_37");
+            this.inventory.addOrReplaceWeapon(0, "flues");
+            this.inventory.addOrReplaceWeapon(0, "mosin");
+            this.inventory.addOrReplaceWeapon(0, "mosin");
+            this.inventory.addOrReplaceWeapon(0, "tango_51");
+            this.inventory.addOrReplaceWeapon(0, "tango_51");
+            this.inventory.addOrReplaceWeapon(0, "m3k");
+            this.inventory.addOrReplaceWeapon(0, "m3k");
+
+            this.inventory.addOrReplaceWeapon(1, "mosin");
+            (this.inventory.getWeapon(1) as GunItem).ammo = 5;
+            
+            this.inventory.addOrReplaceWeapon(0, "m3k");
+            (this.inventory.getWeapon(0) as GunItem).ammo = 9;
+
+            this.inventory.items.setItem("2x_scope", 1);
+            this.inventory.items.setItem("4x_scope", 1);
+            this.inventory.items.setItem("8x_scope", 1);
+
+            
+            this.inventory.helmet = Loots.fromString("tactical_helmet");
+            this.inventory.vest = Loots.fromString("tactical_vest");
+            this.inventory.backpack = Loots.fromString("tactical_pack");
+            
+            
+            this.inventory.items.setItem("12g", 90);
+            this.inventory.items.setItem("556mm", 300);
+            this.inventory.items.setItem("762mm", 300);
+            this.inventory.items.setItem("9mm", 420);
+            this.inventory.items.setItem("gauze", 30);
+            this.inventory.items.setItem("medkit", 4);
+            this.inventory.items.setItem("cola", 15);
+            this.inventory.items.setItem("tablets", 4);
+            
+            this.adrenaline = 100;
+
+
         }
 
         this.updateAndApplyModifiers();

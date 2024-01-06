@@ -107,6 +107,47 @@ export const Maps: Record<string, MapDefinition> = {
             { name: "Deepwood", position: Vec.create(0.5, 0.65) }
         ]
     },
+    onevone: {
+        width: 512,
+        height: 512,
+        oceanSize: 32,
+        beachSize: 16,
+        buildings: {
+            warehouse: 2,
+            small_house: 2,
+            porta_potty: 2,
+            container_3: 1,
+            container_4: 2,
+            container_5: 1,
+            container_10: 2
+        },
+        obstacles: {
+            oil_tank: 2,
+            // christmas_tree: 1, // winter mode
+            oak_tree: 25,
+            birch_tree: 25,
+            pine_tree: 25,
+            flint_crate: 2,
+            aegis_crate: 2,
+            grenade_crate: 10,
+            rock: 25,
+            bush: 50,
+            blueberry_bush: 15,
+            barrel: 20,
+            viking_chest: 1,
+            super_barrel: 5,
+            melee_crate: 4,
+            flint_stone: 1
+        },
+        places: [
+            { name: "Play CSL", position: Vec.create(0.23, 0.2) },
+            { name: "Play CSL", position: Vec.create(0.23, 0.8) },
+            { name: "Play CSL", position: Vec.create(0.75, 0.2) },
+            { name: "Play CSL", position: Vec.create(0.72, 0.8) },
+            { name: "Play CSL", position: Vec.create(0.5, 0.35) },
+            { name: "Play CSL", position: Vec.create(0.5, 0.65) }
+        ]
+    },
     debug: {
         width: 1620,
         height: 1620,
