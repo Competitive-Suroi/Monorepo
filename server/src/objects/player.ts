@@ -728,7 +728,7 @@ export class Player extends BaseGameObject<ObjectCategory.Player> {
         packet.aliveCount = game.aliveCount;
         packet.aliveCountDirty = game.aliveCountDirty || this._firstPacket;
 
-        // kill feed messages
+        // killfeed messages
         packet.killFeedMessages = game.killFeedMessages;
         const killLeader = game.killLeader;
 

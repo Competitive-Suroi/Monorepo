@@ -1106,37 +1106,44 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
                 idString: "house_wall_1",
                 position: Vec.create(5.4, -6.75),
                 rotation: 2
-            }, // Bedroom Bottom Left
+            },
+            // Bedroom Bottom Left
             {
                 idString: "house_wall_2",
                 position: Vec.create(8.85, -18),
                 rotation: 1
-            }, // Bedroom Door
+            },
+            // Bedroom Door
             {
                 idString: "door",
                 position: Vec.create(-4.5, -6.75),
                 rotation: 2
-            }, //  Bathroom Left
+            },
+            // Bathroom Left
             {
                 idString: "house_wall_4",
                 position: Vec.create(-2.50, 17.2),
                 rotation: 1
-            }, //  Bathroom Right
+            },
+            // Bathroom Right
             {
                 idString: "house_wall_4",
                 position: Vec.create(9.55, 17.2),
                 rotation: 1
-            }, // Bathroom Door
+            },
+            // Bathroom Door
             {
                 idString: "door",
                 position: Vec.create(3.1, 7.2),
                 rotation: 2
-            }, // Bathroom Toilet
+            },
+            // Bathroom Toilet
             {
                 idString: { toilet: 2, used_toilet: 1 },
                 position: Vec.create(3.6, 23.5),
                 rotation: 2
-            }, // Front Door
+            },
+            // Front Door
             {
                 idString: "door",
                 position: Vec.create(-14.8, 29),
@@ -1146,7 +1153,8 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
                 idString: "door",
                 position: Vec.create(16.2, -29.5),
                 rotation: 2
-            }, // Living Room Cough
+            },
+            // Living Room Cough
             {
                 idString: "couch",
                 position: Vec.create(-21.6, -1.8),
@@ -1163,12 +1171,14 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
                 idString: "bookshelf",
                 position: Vec.create(-6, 17.5),
                 rotation: 3
-            }, // Kitchen Stove
+            },
+            // Kitchen Stove
             {
                 idString: "stove",
                 position: Vec.create(15.5, 24),
                 rotation: 2
-            }, // Kitchen Fridge
+            },
+            // Kitchen Fridge
             {
                 idString: "fridge",
                 position: Vec.create(25, 24),
@@ -1179,7 +1189,8 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
                 idString: "chair",
                 position: Vec.create(25, 5),
                 rotation: 0
-            }, // Near Backdoor Chair
+            },
+            // Near Backdoor Chair
             {
                 idString: "chair",
                 position: Vec.create(25, -5),
@@ -1202,32 +1213,38 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
                 idString: "bed",
                 position: Vec.create(-21.5, -22.5),
                 rotation: 1
-            }, // Bedroom Drawer
+            },
+            // Bedroom Drawer
             {
                 idString: "small_drawer",
                 position: Vec.create(-26, -11.5),
                 rotation: 1
-            }, // Bedroom Bookshelf
+            },
+            // Bedroom Bookshelf
             {
                 idString: "bookshelf",
                 position: Vec.create(5.5, -22),
                 rotation: 1
-            }, // Bedroom Window
+            },
+            // Bedroom Window
             {
                 idString: "window",
                 position: Vec.create(-7.2, -29.5),
                 rotation: 1
-            }, // Living Room Window
+            },
+            // Living Room Window
             {
                 idString: "window",
                 position: Vec.create(-31, 7.5),
                 rotation: 2
-            }, // Kitchen Window
+            },
+            // Kitchen Window
             {
                 idString: "window",
                 position: Vec.create(31, 15.4),
                 rotation: 2
-            }, // Backdoor Window
+            },
+            // Backdoor Window
             {
                 idString: "window",
                 position: Vec.create(31, -15.9),
@@ -1321,23 +1338,6 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
         idString: "container_11",
         name: "Invisible Container",
         spawnHitbox: RectangleHitbox.fromRect(16, 30)
-    },
-    {
-        idString: "oil_tanker_ship_tanks",
-        name: "Oil Tanker",
-        spawnHitbox: RectangleHitbox.fromRect(110, 300, Vec.create(0, 0)),
-        ceilingHitbox: RectangleHitbox.fromRect(80, 200, Vec.create(9.5, 20)),
-        ceilingImages: [
-            {
-                key: "oil_tanker_ship_tank_ceiling",
-                position: Vec.create(10.5, 20)
-            }
-        ],
-        obstacles: [
-            { idString: "large_oil_tank", position: Vec.create(10, -46.5), rotation: -Math.PI * 2 },
-            { idString: "large_oil_tank", position: Vec.create(10, 20), rotation: Math.PI / 2 },
-            { idString: "large_oil_tank", position: Vec.create(10, 88), rotation: -Math.PI / 2 }
-        ]
     },
     {
         idString: "ship",
@@ -1505,6 +1505,10 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
             {
                 key: "oil_tanker_ship_ceiling",
                 position: Vec.create(7, -99.5)
+            },
+            {
+                key: "oil_tanker_ship_tank_ceiling",
+                position: Vec.create(9.5, 20)
             }
         ],
         floors: [
@@ -1524,6 +1528,11 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
         obstacles: [
             // Main Ship Hitbox
             { idString: "oil_tanker_ship", position: Vec.create(0, 0), rotation: 0 },
+
+            // Oil Tanks
+            { idString: "large_oil_tank", position: Vec.create(9, -46.5), rotation: -Math.PI * 2 },
+            { idString: "large_oil_tank", position: Vec.create(9, 20), rotation: Math.PI / 2 },
+            { idString: "large_oil_tank", position: Vec.create(9, 88), rotation: -Math.PI / 2 },
 
             // Cabin Windows
             { idString: "ship_cabin_window", position: Vec.create(-0.25, -87.5), rotation: 1 },
@@ -1568,9 +1577,6 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
             { idString: "super_barrel", position: Vec.create(43, -7.5) },
             { idString: "sandbags", position: Vec.create(30, -16), rotation: 2 },
             { idString: "flint_crate", position: Vec.create(41, -35) }
-        ],
-        subBuildings: [
-            { idString: "oil_tanker_ship_tanks", position: Vec.create(-1, 0) }
         ]
     },
     {
