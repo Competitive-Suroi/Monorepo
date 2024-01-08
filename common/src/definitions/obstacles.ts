@@ -116,7 +116,8 @@ export const Materials = [
     "cardboard",
     "appliance",
     "large_refinery_barrel",
-    "sand"
+    "sand",
+    "fence"
 ] as const;
 
 export enum RotationMode {
@@ -165,7 +166,7 @@ function makeHouseWall(lengthNumber: string, hitbox: Hitbox): ObstacleDefinition
         name: `House Wall ${lengthNumber}`,
         material: "wood",
         noResidue: true,
-        health: 120,
+        health: 170,
         scale: {
             spawnMin: 1,
             spawnMax: 1,
@@ -383,7 +384,7 @@ export const Obstacles = new ObjectDefinitions<ObstacleDefinition>(
             idString: "river_rock",
             name: "River Rock",
             material: "stone",
-            health: 400,
+            health: 550,
             scale: {
                 spawnMin: 0.9,
                 spawnMax: 1.1,
@@ -2053,8 +2054,8 @@ export const Obstacles = new ObjectDefinitions<ObstacleDefinition>(
         {
             idString: "port_fence",
             name: "Port Fence",
-            material: "appliance",
-            health: 200,
+            material: "fence",
+            health: 40,
             scale: {
                 spawnMin: 1,
                 spawnMax: 1,
@@ -2065,14 +2066,14 @@ export const Obstacles = new ObjectDefinitions<ObstacleDefinition>(
             allowFlyover: FlyoverPref.Never,
             noResidue: true,
             frames: {
-                particle: "metal_particle"
+                particle: "fence_particle"
             }
         },
         {
             idString: "port_fence_side",
             name: "Port Fence Side",
-            material: "appliance",
-            health: 200,
+            material: "fence",
+            health: 40,
             scale: {
                 spawnMin: 1,
                 spawnMax: 1,
@@ -2086,7 +2087,7 @@ export const Obstacles = new ObjectDefinitions<ObstacleDefinition>(
             rotationMode: RotationMode.Limited,
             allowFlyover: FlyoverPref.Never,
             frames: {
-                particle: "metal_particle"
+                particle: "fence_particle"
             }
         },
         {
@@ -2204,7 +2205,7 @@ export const Obstacles = new ObjectDefinitions<ObstacleDefinition>(
             material: "sand",
             health: 1000,
             indestructible: true,
-            hitbox: RectangleHitbox.fromRect(13.5, 8.1),
+            hitbox: RectangleHitbox.fromRect(13.1, 7.7),
             rotationMode: RotationMode.Limited
         },
         {
@@ -2264,7 +2265,7 @@ export const Obstacles = new ObjectDefinitions<ObstacleDefinition>(
             idString: "briefcase",
             name: "Briefcase",
             material: "appliance",
-            health: 100,
+            health: 150,
             scale: {
                 spawnMin: 1.0,
                 spawnMax: 1.0,
