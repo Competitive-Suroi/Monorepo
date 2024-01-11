@@ -5,6 +5,7 @@ import { MapObjectSpawnMode, ObjectDefinitions, ObstacleSpecialRoles, type Objec
 import { Vec, type Vector } from "../utils/vector";
 import { ContainerTints } from "./buildings";
 import { type LootDefinition } from "./loots";
+import { type SyncedParticlesDefinition } from "./syncedParticles";
 
 /**
  * An enum indicating the degree to which an obstacle should allow
@@ -70,6 +71,10 @@ export type ObstacleDefinition = ObjectDefinition & {
     readonly spawnMode?: MapObjectSpawnMode
 
     readonly tint?: number
+
+    readonly particlesOnDestroy?: SyncedParticlesDefinition
+
+    readonly additionalDestroySounds?: string[]
 } & (({
     readonly role: ObstacleSpecialRoles.Door
     readonly locked?: boolean
@@ -543,7 +548,20 @@ export const Obstacles = new ObjectDefinitions<ObstacleDefinition>(
             frames: {
                 particle: "crate_particle",
                 residue: "regular_crate_residue"
-            }
+            },
+            particlesOnDestroy: {
+                type: "tear_gas_particle",
+                count: 10,
+                deployAnimation: {
+                    duration: 4000,
+                    staggering: {
+                        delay: 300,
+                        initialAmount: 2
+                    }
+                },
+                spawnRadius: 15
+            },
+            additionalDestroySounds: ["smoke_grenade"]
         },
         {
             idString: "barrel",
