@@ -2361,7 +2361,7 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
         idString: "mobile_home",
         name: "Mobile Home",
         spawnHitbox: RectangleHitbox.fromRect(65, 40),
-        scopeHitbox: RectangleHitbox.fromRect(43, 20, Vec.create(2, -1)),
+        scopeHitbox: RectangleHitbox.fromRect(42, 20, Vec.create(2, -1)),
         floorImages: [{
             key: "mobile_home_floor",
             position: Vec.create(0, 0)
@@ -2369,7 +2369,7 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
         ceilingImages: [{
             key: "mobile_home_ceiling",
             position: Vec.create(2, -1),
-            residue: "fists" // fixme add residue
+            residue: "mobile_home_residue"
         }],
         floors: [{
             type: "wood",
