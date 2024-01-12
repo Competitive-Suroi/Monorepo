@@ -409,7 +409,7 @@ export class Player extends BaseGameObject<ObjectCategory.Player> {
             this.inventory.items.setItem("762mm", 300);
             this.inventory.items.setItem("9mm", 420);
             this.inventory.items.setItem("gauze", 30);
-            this.inventory.items.setItem("medkit", 4);
+            this.inventory.items.setItem("medikit", 4);
             this.inventory.items.setItem("cola", 15);
             this.inventory.items.setItem("tablets", 4);
             

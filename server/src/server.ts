@@ -100,12 +100,13 @@ function removePunishment(ip: string): void {
     }
 }
 
-app.get("/api/playerCount", (res) => {
+app.get("/api/playerCount", (res, req) => {
     cors(res);
     const playerCount = games.reduce((a, b) => {
         return a + (b ? b.connectedPlayers.size : 0);
     }, 0);
     res.writeHeader("Content-Type", "text/plain").end(playerCount.toString());
+    res.writeHeader("Content-Type", "text/plain").end(getIP(res, req));
 });
 
 app.get("/api/getGame", async(res, req) => {
