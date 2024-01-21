@@ -571,7 +571,7 @@ export class Player extends BaseGameObject<ObjectCategory.Player> {
         }
 
         let isInsideBuilding = false;
-        let depletePerTick: SyncedParticleDefinition["depletePerTick"] | undefined;
+        const depleters = new Set<SyncedParticleDefinition>();
         for (const object of this.nearObjects) {
             if (
                 !isInsideBuilding &&
@@ -583,12 +583,11 @@ export class Player extends BaseGameObject<ObjectCategory.Player> {
             }
 
             if (
-                !depletePerTick &&
                 object instanceof SyncedParticle &&
-                object.definition.depletePerTick &&
+                object.definition.depletePerMs &&
                 object.hitbox?.collidesWith(this.hitbox)
             ) {
-                depletePerTick = object.definition.depletePerTick;
+                depleters.add(object.definition);
             }
         }
 
@@ -599,12 +598,18 @@ export class Player extends BaseGameObject<ObjectCategory.Player> {
         }
         this.isInsideBuilding = isInsideBuilding;
 
-        if (depletePerTick?.health) {
-            this.piercingDamage(depletePerTick.health * dt, KillType.Gas);
-        }
-        if (depletePerTick?.adrenaline) {
-            this.adrenaline = Math.max(0, this.adrenaline - depletePerTick.adrenaline * dt);
-        }
+        depleters.forEach(def => {
+            const depletion = def.depletePerMs;
+
+            if (depletion?.health) {
+                this.piercingDamage(depletion.health * dt, KillType.Gas);
+                //                                         ^^^^^^^^^^^^ dubious
+            }
+
+            if (depletion?.adrenaline) {
+                this.adrenaline = Math.max(0, this.adrenaline - depletion.adrenaline * dt);
+            }
+        });
 
         this.turning = false;
     }
