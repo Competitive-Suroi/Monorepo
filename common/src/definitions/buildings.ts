@@ -198,6 +198,10 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
             {
                 type: "wood",
                 hitbox: RectangleHitbox.fromRect(14, 18)
+            },
+            {
+                type: "wood",
+                hitbox: RectangleHitbox.fromRect(9.8, 3.5, Vec.create(1.5, 10.6))
             }
         ],
         obstacles: [
@@ -211,7 +215,7 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
             },
             {
                 idString: "porta_potty_back_wall",
-                position: Vec.create(0, -8.8),
+                position: Vec.create(0, -8.75),
                 rotation: 0
             },
             {
@@ -231,7 +235,7 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
             },
             {
                 idString: "porta_potty_front_wall",
-                position: Vec.create(-4.6, 8.7),
+                position: Vec.create(-4.6, 8.66),
                 rotation: 2
             }
         ]
@@ -518,11 +522,11 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
             { idString: "ammo_crate", position: Vec.create(-14, 0) },
             { idString: "ammo_crate", position: Vec.create(14, 0) },
 
-            { idString: "box", get position() { return randomVector(-16.6, -11.25, -14.93, -8.03); } },
-            { idString: "box", get position() { return randomVector(-16.6, -11.25, 14.93, 8.03); } },
-            { idString: "box", get position() { return randomVector(16.6, 11.25, -14.93, -8.03); } },
-            { idString: "box", get position() { return randomVector(16.6, 11.25, 14.93, 8.03); } },
-            { idString: "box", get position() { return Vec.create(16.15 * randomSign(), 20.97 * randomSign()); } }
+            { idString: { box: 9, grenade_box: 1 }, get position() { return randomVector(-16.6, -11.25, -14.93, -8.03); } },
+            { idString: { box: 9, grenade_box: 1 }, get position() { return randomVector(-16.6, -11.25, 14.93, 8.03); } },
+            { idString: { box: 9, grenade_box: 1 }, get position() { return randomVector(16.6, 11.25, -14.93, -8.03); } },
+            { idString: { box: 9, grenade_box: 1 }, get position() { return randomVector(16.6, 11.25, 14.93, 8.03); } },
+            { idString: { box: 9, grenade_box: 1 }, get position() { return Vec.create(16.15 * randomSign(), 20.97 * randomSign()); } }
         ],
 
         lootSpawners: [
@@ -1999,7 +2003,7 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
     {
         idString: "port_complex",
         name: "Port Complex",
-        spawnHitbox: RectangleHitbox.fromRect(300, 270, Vec.create(-5, 0)),
+        spawnHitbox: RectangleHitbox.fromRect(360, 285, Vec.create(-25, 0)),
         spawnMode: MapObjectSpawnMode.Beach,
         subBuildings: [
             { idString: "port", position: Vec.create(-120, 0) },
@@ -2371,10 +2375,20 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
             position: Vec.create(2, -1),
             residue: "mobile_home_residue"
         }],
-        floors: [{
-            type: "wood",
-            hitbox: RectangleHitbox.fromRect(43, 20, Vec.create(2, -1))
-        }],
+        floors: [
+            {
+                type: "wood",
+                hitbox: RectangleHitbox.fromRect(43, 20, Vec.create(2, -1))
+            },
+            {
+                type: "metal",
+                hitbox: RectangleHitbox.fromRect(10, 4.5, Vec.create(6, 11))
+            },
+            {
+                type: "metal",
+                hitbox: RectangleHitbox.fromRect(4.5, 10, Vec.create(-21.3, -4.4))
+            }
+        ],
         wallsToDestroy: 2,
         obstacles: [
             { idString: "door", position: Vec.create(-18.75, -4.05), rotation: 3 },
@@ -2394,7 +2408,7 @@ export const Buildings = new ObjectDefinitions<BuildingDefinition>([
 
             { idString: "box", position: Vec.create(26.2, -3.43), rotation: 0 },
             { idString: "box", position: Vec.create(28, 1.52), rotation: 0 },
-            { idString: "barrel", position: Vec.create(-18.9, 14.62), rotation: 0 },
+            { idString: "barrel", position: Vec.create(-18.9, 14.62), rotation: 0 }
         ]
     }
 ]);
